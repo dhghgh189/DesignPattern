@@ -40,8 +40,12 @@ public class ItemManager : MonoBehaviour
     {
         // itemName에 해당하는 팩토리가 존재하는지 확인
         if (!factoryDict.TryGetValue(itemName, out ItemFactory factory))
+        {
+            Debug.LogWarning($"존재하지 않는 아이템입니다 : {itemName}");
             return null;
+        }
 
+        Debug.Log($"아이템 생성 : {itemName}");
         return factory.GetProduct(pos) as Item;
     }
 }
