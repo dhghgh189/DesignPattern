@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemManager : MonoBehaviour
 {
     private static ItemManager instance;
-    public static ItemManager Instnace { get => instance; }
+    public static ItemManager Instance { get => instance; }
 
     // 각각의 아이템 팩토리들
     [SerializeField] private ItemFactory[] factories;
