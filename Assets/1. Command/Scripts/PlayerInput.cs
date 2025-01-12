@@ -24,6 +24,12 @@ public class PlayerInput : MonoBehaviour
             // 작업 취소 요청
             CommandManager.UndoCommand();
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            // 재 실행 요청
+            CommandManager.RedoCommand();
+        }
     }
 
     private void InputMove()
