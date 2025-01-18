@@ -349,7 +349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 2383263071900561690, guid: 9f2236410645b264a9175d2a9aa9da19, type: 3}
-  initPoolSize: 30
+  initPoolSize: 5
 --- !u!1 &1270461148
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,6 +359,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1270461149}
+  - component: {fileID: 1270461150}
   m_Layer: 0
   m_Name: TestShooter
   m_TagString: Untagged
@@ -381,6 +382,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1270461150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270461148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5d171dd5d6c4984f88d2ff332d1b321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pool: {fileID: 942027721}
 --- !u!1 &2102043528
 GameObject:
   m_ObjectHideFlags: 0

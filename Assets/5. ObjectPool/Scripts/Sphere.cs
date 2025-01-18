@@ -8,18 +8,22 @@ public class Sphere : MonoBehaviour
 
     private PooledObject poolComponent;
 
+    private WaitForSeconds waitTime;
+
     private void Awake()
     {
         poolComponent = GetComponent<PooledObject>();
+        waitTime = new WaitForSeconds(deactiveTime);
     }
 
     private void OnEnable()
     {
-        Invoke(nameof(Deactivate), deactiveTime);
+        StartCoroutine(DeactivateRoutine());
     }
 
     private void Deactivate()
     {
+        Debug.Log("Deactivate");
         if (poolComponent != null)
         {
             poolComponent.ReturnToPool();
@@ -27,5 +31,11 @@ public class Sphere : MonoBehaviour
         }
 
         Destroy(gameObject);
+    }
+
+    IEnumerator DeactivateRoutine()
+    {
+        yield return waitTime;
+        Deactivate();
     }
 }

@@ -21,6 +21,7 @@ public class ObjectPool : MonoBehaviour
         for (int i = 0; i < initPoolSize; i++)
         {
             go = Instantiate(prefab);
+            go.Pool = this;
             ReturnToPool(go);
         }
     }
@@ -32,6 +33,7 @@ public class ObjectPool : MonoBehaviour
         if (_pool.Count <= 0)
         {
             go = Instantiate(prefab);
+            go.Pool = this;
             return go;
         }
 
