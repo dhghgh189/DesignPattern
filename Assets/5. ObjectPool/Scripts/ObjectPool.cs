@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
-    [SerializeField] private GameObject prefab;
+    [SerializeField] private PooledObject prefab;
     [SerializeField] private uint initPoolSize; 
 
-    private Stack<GameObject> _pool = new Stack<GameObject>();
+    private Stack<PooledObject> _pool = new Stack<PooledObject>();
 
     private void Awake()
     {
         InitPool();
     }
 
-    public void InitPool()
+    private void InitPool()
     {
-        GameObject go;
+        PooledObject go;
 
         for (int i = 0; i < initPoolSize; i++)
         {
@@ -25,9 +25,9 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
-    public GameObject GetFromPool()
+    public PooledObject GetFromPool()
     {
-        GameObject go;
+        PooledObject go;
 
         if (_pool.Count <= 0)
         {
@@ -36,14 +36,14 @@ public class ObjectPool : MonoBehaviour
         }
 
         go = _pool.Pop();
-        go.SetActive(true);
+        go.gameObject.SetActive(true);
 
         return go;
     }
 
-    public void ReturnToPool(GameObject go)
+    public void ReturnToPool(PooledObject go)
     {
-        go.SetActive(false);
+        go.gameObject.SetActive(false);
         _pool.Push(go);
     }
 }
