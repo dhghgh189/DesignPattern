@@ -43,7 +43,7 @@ public class Presenter : MonoBehaviour
         if (hpBar == null || model.MaxHp == 0)
             return;
 
-        hpBar.value = model.CurrentHp / model.MaxHp;
+        hpBar.value = (float)model.CurrentHp / model.MaxHp;
         txtHp.text = $"{model.CurrentHp}";
     }
 
