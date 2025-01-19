@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class Presenter : MonoBehaviour
 {
     [SerializeField] private Model model;
     [SerializeField] private Slider hpBar;
+    [SerializeField] private TMP_Text txtHp; 
 
     private void Start()
     {
@@ -42,6 +44,7 @@ public class Presenter : MonoBehaviour
             return;
 
         hpBar.value = model.CurrentHp / model.MaxHp;
+        txtHp.text = $"{model.CurrentHp}";
     }
 
     private void OnDestroy()
